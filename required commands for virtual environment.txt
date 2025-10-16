@@ -1,0 +1,9 @@
+python -m venv venv
+
+venv\Scripts\activate.bat
+
+
+python -m uvicorn backend-Copy:app  --host 127.0.0.1 --port 8000
+
+
+root@MySQL4admin
