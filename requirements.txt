@@ -19,7 +19,7 @@ cffi==2.0.0
 chardet==3.0.4
 charset-normalizer==3.4.3
 ci-info==0.3.0
-click==8.2.1
+click<8.2 
 cloudpathlib==0.22.0
 colorama==0.4.6
 coloredlogs==15.0.1
@@ -194,3 +194,4 @@ wrapt==1.17.3
 xlsxwriter==3.2.9
 yake==0.6.0
 yarl==1.20.1
+
