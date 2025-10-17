@@ -17,20 +17,20 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import datetime
 
-from urllib.parse import quote_plus
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "root@MySQL4admin"
-MYSQL_HOST = "localhost"
-MYSQL_PORT = 3306
-MYSQL_DB = "mcq_db"
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+import datetime
+import os
 
-# URL encode the password
-encoded_password = quote_plus(MYSQL_PASSWORD)
+# Use SQLite database that works anywhere
+DATABASE_URL = "sqlite:///./mcq_database.db"
 
-DATABASE_URL = f"mysql+mysqlconnector://{MYSQL_USER}:{encoded_password}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DB}"
-
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+engine = create_engine(
+    DATABASE_URL, 
+    connect_args={"check_same_thread": False}  # Needed for SQLite
+)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 class Question(Base):
@@ -1363,3 +1363,4 @@ async def generate_video_mcqs(
 
    
         
+
