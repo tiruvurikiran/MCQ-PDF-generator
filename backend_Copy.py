@@ -106,7 +106,7 @@ app = FastAPI()
 
 
 # Path to your design.html
-HTML_PATH = r"C:/Users/CITHP/Documents/combined summary video generator/design - Copy.html"
+HTML_PATH = r"https://github.com/tiruvurikiran/MCQ-PDF-generator/blob/main/design%20-%20Copy.html"
 
 @app.get("/")
 async def read_root():
@@ -1363,4 +1363,5 @@ async def generate_video_mcqs(
 
    
         
+
 
